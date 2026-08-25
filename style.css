@@ -1,0 +1,750 @@
+/* ====== Variables ====== */
+:root{
+  --green: #00B85A;       /* deep green */
+  --green-2:#7BFF9F;      /* shakego green */
+  --black:#0f0f0f;
+  --white:#ffffff;
+  --soft:#F3F2EE;         /* “soft cream” */
+  --shadow: 0 12px 30px rgba(0,0,0,.15);
+  --radius: 999px;
+  --max: 1200px;
+  --font: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+*{ box-sizing:border-box; }
+html, body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: var(--font);
+  color: var(--black);
+  background: #fff;
+  overflow-x: hidden; /* evita scroll lateral por cosas grandes */
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; }
+
+
+/* ====== NAVBAR ====== */
+.site-header{
+  position: sticky;
+  top:0;
+  z-index: 1000;
+  background: var(--white);
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+
+
+.nav{
+  width: 100%;              /* ocupa todo el ancho */
+  max-width: none;          /* quita el límite */
+  margin: 0;                /* quita centrado */
+  padding: 12px 22px;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 16px;
+  position: relative;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  text-decoration:none;
+}
+
+.brand__logo{
+  margin-left: 0px;
+  height: 100px;
+  width:auto;
+}
+
+.nav__links{
+  display:flex;
+  align-items:center;
+  gap: 35px;
+}
+
+.nav__link{
+  text-decoration:none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 6px 2px;
+  transition: opacity .2s ease, color .2s ease;
+  white-space: nowrap;
+}
+
+.nav__link:hover{ opacity:.75; }
+
+.nav__link.active{
+  color: var(--green-2); /* el activo en verde */
+}
+
+/* botón mobile */
+.nav__toggle{
+  display:none;
+  width: 44px;
+  height: 40px;
+  border: none;
+  background: none;
+  cursor:pointer;
+  border-radius: 10px;
+  padding: 8px;
+}
+.nav__toggle span{
+  display:block;
+  height: 2px;
+  background:#111;
+  margin: 7px 8px;
+  border-radius: 2px;
+}
+
+/* ====== HERO ====== */
+.hero{
+  background-color: #00bf63;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+}
+
+
+
+.image-stack__back {
+  position: absolute;
+  max-width: none;
+  width: 2300px;
+  height: auto;
+  top: 45%;
+  left: 43%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+
+
+.machine--left{ 
+  position: absolute;
+  width: 500px;
+  height: auto;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+
+/* Botón “Conoce Nuestras Máquinas” */
+.hero__button {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
+  padding: 16px 60px;
+  border-radius: 16px;
+  font-size: 18px;
+  z-index: 3;
+}
+
+/* ====== PRODUCTS SECTION ====== */
+.products{
+  background: var(--white);
+  padding: 54px 22px 64px;
+}
+
+.products__wrap{
+  width: min(100% - 40px, 1100px);
+  margin: 0 auto;
+  max-width: var(--max);
+  text-align:center;
+}
+
+.products__title{
+  margin: 0 0 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 42px;
+  letter-spacing: .2px;
+  color: var(--green-2);
+  font-weight: 900;
+}
+
+.products__subtitle{
+  margin: 0 0 34px;
+  opacity:.9;
+}
+
+.cards{
+  display:flex;
+  justify-content:center;
+  gap: 56px;
+  flex-wrap: wrap;
+}
+
+.card{
+  text-decoration:none;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  gap: 12px;
+  padding: 10px 8px;
+}
+
+.card__circle{
+  width: 140px;
+  height: 140px;
+  border-radius: 999px;
+  border: 3px solid var(--green-2);
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  background: #fff;
+}
+
+.card__circle img{
+  width: 92%;
+  height: 92%;
+  object-fit: contain;
+}
+
+.card__name{
+  margin: 0;
+  font-weight: 800;
+}
+
+.footer{
+  width: 100%;
+  background: var(--green);
+  display: flex;
+  justify-content: center;   /* centra el bloque completo */
+}
+
+.footer__wrap{
+  width: min(100% - 40px, 1100px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;                 /* 👈 espacio entre columnas (ajústalo si quieres más juntas) */               /* evita que se estire al 100% */
+  text-align: left;
+  color: #000;
+}
+
+/* columnas */
+.footer__box{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 160px;
+}
+
+/* títulos */
+.footer__title{
+  font-weight: 800;
+  font-size: 14px;
+  margin: 0 0 6px 0;
+}
+
+/* listas */
+.footer__list{
+  margin: 0;
+  padding-left: 16px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* redes sociales */
+.footer__social{
+  display: flex;
+  gap: 15px;                /* espacio entre IG y FB */
+  align-items: center;
+}
+
+/* imágenes redes */
+.footer__social img{
+  width: 22px;              /* tamaño de los iconos */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.footer__social img:hover{
+  transform: scale(1.1);
+}
+
+
+/* Nuestros productos */
+
+/* ====== PÁGINA MENÚ (estilo imagen) ====== */
+.menu-page{
+  background: #0b0b0b;            /* pure black */
+}
+
+/* Cada bloque (fila) */
+.menu-block{
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-block2{
+  position: relative;
+  overflow: hidden;
+  margin: -100px auto 0;
+}
+
+/* Contenido centrado */
+.menu-block__inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  padding: 100px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 34px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Para alternar (tarjeta izquierda / bebida derecha) */
+.menu-block__inner--reverse{
+  flex-direction: row;
+}
+
+/* Bebidas */
+.drink{
+  width: 330px;
+  height: auto;
+  filter: drop-shadow(0 18px 30px rgba(0,0,0,.45));
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.drink-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: margin-bottom 0.3s ease;
+}
+
+.click-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.drink-container:hover .drink {
+    transform: scale(1.08);
+    opacity: 0.55;
+}
+
+.drink-container:hover .click-text {
+    opacity: 1;
+}
+
+.drink-container.is-active .drink {
+    transform: scale(1.8);
+    z-index: 10;
+    position: relative;
+}
+
+
+.menu-block:has(.drink-container.is-active) + .product-detail__line--top {
+    transform: translateY(250px);
+}
+
+.product-detail__line--top {
+    transition: transform 0.3s ease;
+}
+/* Tarjetas */
+.nutrition-card {
+  width: 420px;
+  max-width: 42vw;
+  border-radius: 44px;
+  padding: 26px 28px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.35);
+  box-sizing: border-box;
+}
+
+/* Variantes de color (como imagen) */
+.nutrition-card--brown{ background: #b67f5c; color: #fff; }
+
+/* Texto tarjeta */
+.nutrition-card__title{
+  margin: 0 0 6px;
+  font-size: 38px;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.nutrition-card__subtitle{
+  margin: 0 0 18px;
+  font-weight: 700;
+  opacity: .95;
+}
+
+/* Línea de arriba */
+.product-detail__line--top {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 1300px;
+    height: auto;
+    margin: -400px auto 0;
+    z-index: 1;
+}
+
+/* Línea de abajo */
+
+
+/* Lista nutricional */
+.nutrition-list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.nutrition-list li{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(255,255,255,.35);
+}
+
+/* para tarjetas claras, borde más oscuro */
+.nutrition-card--cream .nutrition-list li,
+
+
+
+/* Nuestra maquina */
+
+.machine-page{
+  background: #fff;
+}
+
+/* ===== TOP ===== */
+
+
+.top__wrap{
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.3fr 0.8fr;  /* izquierda más grande */
+  gap: 0;
+  box-shadow: none;
+}
+
+/* video contenedor */
+.top__media{
+  padding: 30px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* video local */
+.top__video{
+  width: 100%;
+  height: 00%;
+  min-height: 360px;
+  max-height: 430px;
+  object-fit: cover;
+  border: 0;
+}
+
+/* iframe (si usas youtube) */
+.top__iframe{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+.top__iframe iframe{
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* panel verde */
+.top__panel{
+  background: var(--green-2);
+  padding: 34px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+/* texto del panel */
+.panel__title{
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.panel__desc{
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.panel__list{
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  font-size: 18px;
+}
+
+/* ===== GALERÍA INFERIOR ===== */
+.gallery{
+  background: var(--black);
+  padding: 34px 16px 0;
+}
+
+.gallery__wrap{
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.gallery__img{
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border: 0;
+}
+
+/* barra verde inferior */
+.gallery__bar{
+  margin-top: 28px;
+  height: 14px;
+  background: var(--green);
+}
+
+/* ===== CONTACT ===== */
+.contact{
+  background: #7BFF9F; /* shakego green */
+  position: relative;
+  padding: 60px 16px 40px;
+}
+
+.contact__wrap{
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+  color: #0b0b0b;
+}
+
+.contact__title{
+  margin: 0;
+  font-size: 34px;
+  font-weight: 900;
+}
+
+.contact__subtitle{
+  margin: 10px 0 0;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.contact__dash{
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* FORM */
+.contact__form{
+  margin-top: 22px;
+  display: grid;
+  gap: 14px;
+}
+
+.contact__input,
+.contact__textarea{
+  width: 100%;
+  border: 2px solid #0b0b0b;     /* pure black */
+  background: transparent;
+  color: #0b0b0b;
+  padding: 12px 14px;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+}
+
+.contact__input{
+  height: 44px;
+}
+
+.contact__textarea{
+  height: 180px;
+  resize: none;
+  padding-top: 16px;
+}
+
+/* placeholders */
+.contact__input::placeholder,
+.contact__textarea::placeholder{
+  color: rgba(0,0,0,.85);
+  font-weight: 800;
+}
+
+/* BOTÓN */
+.contact__btn{
+  position: relative;
+  width: 190px;
+  margin: 10px auto 0;
+  background: #fff;              /* soft cream/white */
+  border: 2px solid #0b0b0b;
+  padding: 12px 16px;
+  font-weight: 900;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(0,0,0,.15);
+}
+
+.contact__btn-pill{
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 70%;
+  background: #00B85A; /* deep green */
+  border-radius: 999px;
+}
+
+/* INFO abajo */
+.contact__info{
+  margin-top: 28px;
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+}
+
+.contact__line{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.contact__icon{
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 2px solid #0b0b0b;
+  font-size: 13px;
+}
+
+/* Barra verde inferior */
+.contact__bottom-bar{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 18px;
+  background: #00B85A; /* deep green */
+}
+
+/* Responsive mobile */
+
+/*Header*/
+@media (max-width: 768px) {
+
+  .nav {
+    padding: 15px 20px;
+    min-height: 70px;
+  }
+
+  /* Mostrar botón hamburguesa */
+  .nav__toggle {
+    display: block;
+  }
+
+  /* Ocultar menú inicialmente */
+  .nav__links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+
+    flex-direction: column;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 25px 0;
+
+    background: white;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+
+    z-index: 1000;
+  }
+
+  /* Menú abierto */
+  .nav__links.active {
+    display: flex;
+  }
+
+  .nav__link {
+    font-size: 16px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  /* Footer */
+
+  .footer__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    padding: 30px 20px;
+
+    gap: 30px;
+    box-sizing: border-box;
+  }
+
+  .footer__box {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer__title {
+    margin-bottom: 12px;
+  }
+
+  .footer__list {
+    padding-left: 0;
+    list-style-position: inside;
+  }
+
+  .footer__social {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shakego To Go - Inicio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- HEADER / NAVBAR -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Navegación principal">
+      <!-- Logo izquierda -->
+      <a class="brand" href="index.html" aria-label="Ir a Inicio">
+        <img class="brand__logo" src="Imagenes/Logo sin fondo.png" alt="Shakego To Go" />
+      </a>
+
+      <!-- Botón menú mobile -->
+      <button class="nav__toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Links derecha -->
+      <div class="nav__links" id="navLinks">
+        <a class="nav__link" href="index.html" data-page="index.html">Inicio</a>
+        <a class="nav__link" href="productos.html" data-page="productos.html">Nuestros Productos</a>
+        <a class="nav__link" href="maquina.html" data-page="maquina.html">Nuestra Máquina</a>
+        <a class="nav__link" href="contacto.html" data-page="contacto.html">Contáctanos</a>
+      </div>
+    </nav>
+  </header>
+
+  <!--Body-->
+
+  <section class="contact">
+  <div class="contact__wrap">
+
+    <header class="contact__head">
+      <h2 class="contact__title">Contáctanos</h2>
+      <p class="contact__subtitle">¿Quieres una máquina Shake’eo en tu espacio?</p>
+      <div class="contact__subtitle">Escríbenos y llevemos proteína al instante a tu comunidad</div>
+    </header>
+
+    <form class="contact__form" id="contactForm">
+
+      <label class="contact__label" for="nombre">Nombre</label>
+      <input
+        id="nombre"
+        name="nombre"
+        class="contact__input"
+        type="text"
+        required
+      />
+
+      <label class="contact__label" for="email">Email</label>
+      <input
+        id="email"
+        name="email"
+        class="contact__input"
+        type="email"
+        required
+      />
+
+      <label class="contact__label" for="telefono">Teléfono</label>
+      <input
+        id="telefono"
+        name="telefono"
+        class="contact__input"
+        type="tel"
+      />
+
+      <label class="contact__label" for="razon-contacto">
+          Razón de contacto
+      </label>
+
+      <textarea
+          id="razon-contacto"
+          name="razon"
+          class="contact__textarea"
+          required></textarea>
+
+      <button class="contact__btn" type="submit">
+          <span class="contact__btn-pill" aria-hidden="true"></span>
+          ENVIAR
+      </button>
+
+      <p id="mensaje"></p>
+
+    </form>
+
+    <div class="contact__info">
+      <div class="contact__line">
+        <span class="contact__icon" aria-hidden="true">✉</span>
+        <span>comercial@shakeeo.com</span>
+      </div>
+
+      <div class="contact__line">
+        <span class="contact__icon" aria-hidden="true"><img src="Imagenes/Instagram Logo.png"></span>
+        <span>@shakeeo</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="contact__bottom-bar"></div>
+</section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__wrap">
+      <div class="footer__box">
+        <h4 class="footer__title">Contáctanos:</h4>
+        <ul class="footer__list">
+          <li>comercial@shakego.com</li>
+          <li>(601) 1234567</li>
+        </ul>
+      </div>
+
+      <div class="footer__box">
+            <h4 class="footer__title">Síguenos en:</h4>
+            <div class="footer__social">
+                <a href="https://instagram.com/tucuenta" target="_blank">
+                    <img src="Imagenes/Instagram Logo.png" alt="Instagram">
+                </a>
+                <a href="https://facebook.com/tucuenta" target="_blank">
+                    <img src="Imagenes/tiktok.png" alt="TikTok">
+                </a>
+            </div>
+      </div>
+
+      <div class="footer__box">
+        <h4 class="footer__title">Nuestra Política</h4>
+        <ul class="footer__list">
+          <li>Términos y condiciones</li>
+          <li>Política de privacidad</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="menuMobile.js"></script>
+  <script>
+const formulario = document.getElementById("contactForm");
+const mensaje = document.getElementById("mensaje");
+
+formulario.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    mensaje.textContent = "Enviando...";
+
+    const datos = new FormData(formulario);
+
+    try {
+
+        await fetch(
+            "https://script.google.com/macros/s/AKfycbyUFiw7gD3dyQ8ORqrgdOTLZtAbuKnGfqcsebIMC-g5jNfqAO3tt4wi5BFiVAzacp8T/exec",
+            {
+                method: "POST",
+                body: datos,
+                mode: "no-cors"
+            }
+        );
+
+        mensaje.textContent =
+            "¡Gracias! Hemos recibido tu solicitud.";
+
+        formulario.reset();
+
+    } catch (error) {
+
+        console.error(error);
+
+        mensaje.textContent =
+            "No fue posible enviar el formulario. Inténtalo nuevamente.";
+
+    }
+
+});
+</script>
+  </body>
+</html>
