@@ -524,6 +524,8 @@ a{ color:inherit; }
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
   align-items: center;
+  padding-bottom: 30px;
+  box-sizing: border-box;
 }
 
 .gallery__img{
@@ -746,5 +748,35 @@ a{ color:inherit; }
 
   .footer__social {
     justify-content: center;
+  }
+  /* Nuestra MAquina */
+  .top__wrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  }
+
+  .top__media {
+    width: 100%;
+    order: 1;
+  }
+
+  .top__panel {
+    width: 100%;
+    order: 2;
+  }
+
+  .top__video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .gallery__wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery__img {
+    width: 100%;
   }
 }
