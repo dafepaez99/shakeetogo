@@ -520,11 +520,11 @@ a{ color:inherit; }
 .gallery__wrap{
   max-width: var(--max);
   margin: 0 auto;
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
   align-items: center;
-  padding-bottom: 30px;
+  padding-bottom: 40px;
   box-sizing: border-box;
 }
 
